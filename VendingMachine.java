@@ -1,6 +1,18 @@
 import java.util.Scanner;
 
 public class VendingMachine {
+    public class Main{
+    public static void main(String[] args) {
+        VendingMachine vendingMachine = new VendingMachine();
+        vendingMachine.welcomeUser();
+        vendingMachine.displayCategories();
+        vendingMachine.startShopping();
+        vendingMachine.processPayment();
+        vendingMachine.thankUser();
+
+    }
+         }
+
         private Inventory inventory;
         private double totalPurchase;
 
@@ -49,7 +61,6 @@ public class VendingMachine {
                 System.out.println("Invalid selection. Please try again.");
             }
         }
-        import java.util.Scanner;
         public void processPayment() {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter the amount in cash: $");
