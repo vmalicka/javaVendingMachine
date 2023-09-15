@@ -1,25 +1,26 @@
 import java.util.Scanner;
 
 public class VendingMachine {
-    public class Main{
-    public static void main(String[] args) {
-        VendingMachine vendingMachine = new VendingMachine();
-        vendingMachine.welcomeUser();
-        vendingMachine.displayCategories();
-        vendingMachine.startShopping();
-        vendingMachine.processPayment();
-        vendingMachine.thankUser();
+    public class Main {
+        public static void main(String[] args) {
+            VendingMachine vendingMachine = new VendingMachine();
+            vendingMachine.welcomeUser();
+            vendingMachine.displayCategories();
+            vendingMachine.startShopping();
+            vendingMachine.processPayment();
+            vendingMachine.thankUser();
 
-    }
-         }
-
-        private Inventory inventory;
-        private double totalPurchase;
-
-        public VendingMachine() {
-            inventory = new Inventory();
-            totalPurchase = 0.0;
         }
+    }
+
+    private Inventory inventory;
+    private double totalPurchase;
+
+    public VendingMachine() {
+        inventory = new Inventory();
+        totalPurchase = 0.0;
+    }
+
     public void Inventory() {
         // Adding products to the inventory
         inventory.addProduct(new Product("Lays", 1.5, Category.SNACKS, "Calories: 150, Fat: 10g, Carbs: 15g"), 0, 0, 0);
@@ -28,28 +29,31 @@ public class VendingMachine {
         inventory.addProduct(new Product("Pepsi", 1.9, Category.BEVERAGES, "Calories: 150, Sugar: 41g, Sodium: 30mg"), 1, 1, 0);
         // Add more products as needed
     }
+
     public void welcomeUser() {
-            System.out.println("Welcome to the Vending Machine!");
+        System.out.println("Welcome to the Vending Machine!");
+    }
+
+    public void displayCategories() {
+        System.out.println("Categories:");
+        for (Category category : Category.values()) {
+            System.out.println(category.ordinal() + ". " + category.name());
         }
-        public void displayCategories() {
-            System.out.println("Categories:");
-            for (Category category : Category.values()) {
-                System.out.println(category.ordinal() + ". " + category.name());
-            }
-        }
-        public void displayProductsByCategory(Category category) {
-            System.out.println("Products in " + category.name() + ":");
-            for (int row = 0; row < 6; row++) {
-                for (int column = 0; column < 6; column++) {
-                    for (int stack = 0; stack < 6; stack++) {
-                        Product product = inventory.getProduct(row, column, stack);
-                        if (product != null && product.getCategory() == category) {
-                            System.out.println(product.getName() + " - $" + product.getPrice());
-                        }
+    }
+
+    public void displayProductsByCategory(Category category) {
+        System.out.println("Products in " + category.name() + ":");
+        for (int row = 0; row < 6; row++) {
+            for (int column = 0; column < 6; column++) {
+                for (int stack = 0; stack < 6; stack++) {
+                    Product product = inventory.getProduct(row, column, stack);
+                    if (product != null && product.getCategory() == category) {
+                        System.out.println(product.getName() + " - $" + product.getPrice());
                     }
                 }
             }
         }
+    }
 
         public void selectProduct(Category category, int row, int column, int stack) {
             Product product = inventory.getProduct(row, column, stack);
