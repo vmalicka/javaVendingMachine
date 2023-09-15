@@ -1,38 +1,22 @@
 public class VendingMachine {
-    VendingMachine {
-        Inventory inventory;
-        double totalPurchase;
+        private Inventory inventory;
+        private double totalPurchase;
 
         public VendingMachine() {
             inventory = new Inventory();
             totalPurchase = 0.0;
         }
-        //vendingmachine is the object, addProduct() is the method
-        vendingMachine.addProduct(0, 0, "Soda");  //row 0, col 0
-        vendingMachine.addProduct(0, 1, "Chips");
-        vendingMachine.addProduct(0, 2, "Gum");
-        vendingMachine.addProduct(1, 0, "poprocks");
-        vendingMachine.addProduct(1, 1, "Candy");
-        vendingMachine.addProduct(1, 2, "Gum");
-        vendingMachine.addProduct(2, 2, "Water");
+    public void initializeInventory() {
+        // Adding products to the inventory
+        inventory.addProduct(new Product("Lays", 1.5, Category.SNACKS, "Calories: 150, Fat: 10g, Carbs: 15g"), 0, 0, 0);
+        inventory.addProduct(new Product("Doritos", 1.8, Category.SNACKS, "Calories: 140, Fat: 8g, Carbs: 16g"), 0, 1, 0);
+        inventory.addProduct(new Product("Coca Cola", 2.0, Category.BEVERAGES, "Calories: 140, Sugar: 39g, Sodium: 45mg"), 1, 0, 0);
+        inventory.addProduct(new Product("Pepsi", 1.9, Category.BEVERAGES, "Calories: 150, Sugar: 41g, Sodium: 30mg"), 1, 1, 0);
+        // Add more products as needed
+    }
 
-        //Show all the contents in the Vending Machine
-        System.out.println("Vending Machine Contents:");
-        vendingMachine.display();
 
-        //Get some of the products from the Vending Machine product inventory
-        System.out.println("\nGetting products from the vending machine:");
-        System.out.println("1. " + vendingMachine.getProduct(0, 0));  //Get the soda
-        System.out.println("2. " + vendingMachine.getProduct(0, 1));  //get the chips
-        System.out.println("3. " + vendingMachine.getProduct(1, 1));  //get the candy
-        System.out.println("4. " + vendingMachine.getProduct(2, 2));  //get the water
-
-        //Display what is left in inventory
-        System.out.println("\nUpdated Vending Machine Contents:");
-        vendingMachine.display();  //Only Gum and poprocks are the products left
-        }
-
-        public void welcomeUser() {
+    public void welcomeUser() {
             System.out.println("Welcome to the Vending Machine!");
         }
 
