@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class VendingMachine {
         private Inventory inventory;
         private double totalPurchase;
@@ -47,7 +49,7 @@ public class VendingMachine {
                 System.out.println("Invalid selection. Please try again.");
             }
         }
-
+        import java.util.Scanner;
         public void processPayment() {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter the amount in cash: $");
