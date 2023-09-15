@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[]args){
-        VendingMachine vendingMachine = new VendingMachine(); vendingMachine.start();
+        VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.welcomeUser();
         vendingMachine.displayCategories();
         vendingMachine.startShopping();
